@@ -41,7 +41,7 @@ const TabBar = () => {
     <TabBarContainer>
       {MENUS.map(({ Icon, title, key }) => {
         return (
-          <TabBarObjectContainer onPress={() => setSelectedMenu(key)}>
+          <TabBarObjectContainer key={key} onPress={() => setSelectedMenu(key)}>
             <Icon fill={selectedMenu === key ? '#FFFFFF' : '#727078'} />
             <TabBarObjectText
               style={{
