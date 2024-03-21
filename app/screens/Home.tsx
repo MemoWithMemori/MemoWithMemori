@@ -5,6 +5,14 @@ import styled, { css } from 'styled-components/native';
 import Header from '@/components/Header';
 import { Dimensions } from 'react-native';
 import TabBar from '@/components/TabBar';
+import SearchBar from '@/components/common/SearchBar';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import LandingHome from './LandingHome';
+import EndingNote from './EndingNote';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const Tab = createBottomTabNavigator();
 
 const Home = () => {
   const [isHome, setIsHome] = useState<boolean>(false);
@@ -31,7 +39,31 @@ const Home = () => {
         <AnimatedContainer style={{ opacity }}>
           <HomeContainer>
             <Header />
-            <TabBar />
+            <LandingHome />
+            {/* <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarShowLabel: true,
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName;
+
+                  if (route.name === 'Home') {
+                    iconName = focused
+                      ? 'ios-information-circle'
+                      : 'ios-information-circle-outline';
+                  } else if (route.name === 'EndingNote') {
+                    iconName = focused ? 'ios-list-box' : 'ios-list';
+                  }
+
+                  // 어떤 아이콘이든 사용할 수 있음
+                  return <Icon name={iconName} size={size} color={color} />;
+                },
+              })}
+              initialRouteName="Home"
+            >
+              <Tab.Screen name="Home" component={LandingHome} />
+              <Tab.Screen name="EndingNote" component={EndingNote} />
+            </Tab.Navigator> */}
+            {/* <TabBar /> */}
           </HomeContainer>
         </AnimatedContainer>
       ) : (
