@@ -10,17 +10,23 @@ type StyleContainerType = {
 
   width?: string;
   height?: string;
-  margin?: string;
-  padding?: string;
+  marginTop?: string;
+  marginBottom?: string;
+  marginRight?: string;
+  marginLeft?: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  paddingRight?: string;
+  paddingLeft?: string;
 
   backgroundColor?: string;
   borderRadius?: string;
-  border?: number;
+  border?: string;
 
-  borderTopRight?: number;
-  borderTopLeft?: number;
-  borderBottomRight?: number;
-  borderBottomLeft?: number;
+  borderTopRightRadius?: string;
+  borderTopLeftRadius?: string;
+  borderBottomRightRadius?: string;
+  borderBottomLeftRadius?: string;
 };
 
 const Container: React.FC<StyleContainerType> = ({
@@ -30,15 +36,21 @@ const Container: React.FC<StyleContainerType> = ({
   gap,
   width,
   height,
-  margin,
-  padding,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  paddingTop,
+  paddingBottom,
+  paddingRight,
+  paddingLeft,
   backgroundColor,
   borderRadius,
   border,
-  borderTopLeft,
-  borderTopRight,
-  borderBottomLeft,
-  borderBottomRight,
+  borderTopLeftRadius,
+  borderTopRightRadius,
+  borderBottomLeftRadius,
+  borderBottomRightRadius,
   children, // 직접 명시해줘도 되고, React.FC를 사용하면 자동으로 포함됩니다.
 }) => {
   // 모든 props를 StyledContainer에 전달합니다.
@@ -50,15 +62,21 @@ const Container: React.FC<StyleContainerType> = ({
       gap={gap}
       width={width}
       height={height}
-      margin={margin}
-      padding={padding}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginRight={marginRight}
+      marginLeft={marginLeft}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+      paddingRight={paddingRight}
+      paddingLeft={paddingLeft}
       backgroundColor={backgroundColor}
       borderRadius={borderRadius}
       border={border}
-      borderTopLeft={borderTopLeft}
-      borderTopRight={borderTopRight}
-      borderBottomLeft={borderBottomLeft}
-      borderBottomRight={borderBottomRight}
+      borderTopLeftRadius={borderTopLeftRadius}
+      borderTopRightRadius={borderTopRightRadius}
+      borderBottomLeftRadius={borderBottomLeftRadius}
+      borderBottomRightRadius={borderBottomRightRadius}
     >
       {children}
     </StyledContainer>
@@ -76,15 +94,25 @@ const StyledContainer = styled.View<StyleContainerType>`
 
   width: ${(props) => props.width || 'auto'};
   height: ${(props) => props.height || 'auto'};
-  margin: ${(props) => props.margin || '0px'};
-  padding: ${(props) => props.padding || '0px'};
+
+  margin-top: ${(props) => props.marginTop || '0px'};
+  margin-bottom: ${(props) => props.marginBottom || '0px'};
+  margin-left: ${(props) => props.marginLeft || '0px'};
+  margin-right: ${(props) => props.marginRight || '0px'};
+
+  padding-top: ${(props) => props.paddingTop || '0px'};
+  padding-bottom: ${(props) => props.paddingBottom || '0px'};
+  padding-left: ${(props) => props.paddingLeft || '0px'};
+  padding-right: ${(props) => props.paddingRight || '0px'};
 
   background-color: ${(props) => props.backgroundColor || '#FFFFFF'};
   border-radius: ${(props) => props.borderRadius || '0px'};
-  border: ${(props) => props.border || 0};
+  border: ${(props) => props.border || '0px'};
 
-  border-top-right-radius: ${(props) => props.borderTopRightRadius || 0};
-  border-top-left-radius: ${(props) => props.borderTopLeftRadius || 0};
-  border-bottom-right-radius: ${(props) => props.borderBottomRightRadius || 0};
-  border-bottom-left-radius: ${(props) => props.borderBottomLeftRadius || 0};
+  border-top-right-radius: ${(props) => props.borderTopRightRadius || '0px'};
+  border-top-left-radius: ${(props) => props.borderTopLeftRadius || '0px'};
+  border-bottom-right-radius: ${(props) =>
+    props.borderBottomRightRadius || '0px'};
+  border-bottom-left-radius: ${(props) =>
+    props.borderBottomLeftRadius || '0px'};
 `;

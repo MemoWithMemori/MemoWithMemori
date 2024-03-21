@@ -63,7 +63,7 @@ const TabBarContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  padding-top: 13px;
   position: absolute;
   bottom: 0;
 
@@ -78,7 +78,6 @@ const TabBarContainer = styled.View`
 
 const TabBarObjectContainer = styled.View`
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-right: 26px;
   margin-left: 26px;

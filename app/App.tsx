@@ -17,6 +17,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Section = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -58,13 +60,11 @@ const App = () => {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       {/* <Home /> */}
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}
-        contentContainerStyle={{ flexGrow: 1 }}
-      >
-        <Home />
-      </ScrollView>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <Home />
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </SafeAreaView>
   );
 };
