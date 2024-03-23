@@ -39,7 +39,7 @@ const Home = () => {
         <AnimatedContainer style={{ opacity }}>
           <HomeContainer>
             <Header />
-            <LandingHome />
+            <EndingNote />
             {/* <Tab.Navigator
               screenOptions={({ route }) => ({
                 tabBarShowLabel: true,
