@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, Animated } from 'react-native';
 import PreviewHome from './PreviewHome';
 import styled, { css } from 'styled-components/native';
@@ -11,10 +11,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import LandingHome from './LandingHome';
 import EndingNote from './EndingNote';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { createStackNavigator } from '@react-navigation/stack';
+import Chat from './Chat';
+
+import { useNavigation } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const Home = () => {
+  const navigation: any = useNavigation();
   const [isHome, setIsHome] = useState<boolean>(false);
   const opacity = useState(new Animated.Value(0))[0];
 
@@ -39,7 +45,9 @@ const Home = () => {
         <AnimatedContainer style={{ opacity }}>
           <HomeContainer>
             <Header />
-            <EndingNote />
+            <LandingHome />
+
+            {/* <EndingNote /> */}
             {/* <Tab.Navigator
               screenOptions={({ route }) => ({
                 tabBarShowLabel: true,
