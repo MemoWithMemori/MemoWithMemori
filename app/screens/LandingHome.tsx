@@ -1,15 +1,20 @@
 import Container from '@/components/common/Container';
 import SearchBar from '@/components/common/SearchBar';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import ImageCardBackgroundBlue from '@assets/Home/image-card-background-blue.png';
 import ImageCardBackgroundOrange from '@assets/Home/image-card-background-orange.png';
 import ImageCardBackgroundRed from '@assets/Home/image-card-background-red.png';
 import IconArrowTopGray from '@assets/common/icon-arrow-top-gray.svg';
 import styled from 'styled-components/native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+
+import { useNavigation } from '@react-navigation/native';
 
 const LandingHome = () => {
+  const navigation: any = useNavigation();
+  const goChat = useCallback(() => navigation.navigate('Chat'), [navigation]);
+
   return (
     <ScrollView style={{ flex: 1 }}>
       <Container
@@ -36,7 +41,7 @@ const LandingHome = () => {
                   <Text style={{ color: '#Ffffff' }}>{'은\n언제인가요?'}</Text>
                 </Text>
               </CardText>
-              <CardButtonContainer width="120px">
+              <CardButtonContainer width="120px" onPress={goChat}>
                 <CardButtonText>{'질문카드 작성하기'}</CardButtonText>
               </CardButtonContainer>
             </Card>
@@ -119,7 +124,7 @@ const CardSubText = styled.Text`
   margin-left: 12px;
 `;
 
-const CardButtonContainer = styled.View<{ width: string }>`
+const CardButtonContainer = styled(TouchableOpacity)<{ width: string }>`
   width: ${(props) => props.width};
   height: 35px;
 
