@@ -15,6 +15,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Chat from './Chat';
 
 import { useNavigation } from '@react-navigation/native';
+import MainTabNavigator from '@/components/navigation/MainTabNavigator';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -32,7 +33,7 @@ const Home = () => {
         duration: 500,
         useNativeDriver: true,
       }).start();
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
@@ -41,37 +42,17 @@ const Home = () => {
 
   return (
     <>
-      {isHome ? (
+      <AnimatedContainer style={{ opacity }}>
+        <HomeContainer>
+          <Header isLogo={true} />
+          <LandingHome />
+        </HomeContainer>
+      </AnimatedContainer>
+      {/* {isHome ? (
         <AnimatedContainer style={{ opacity }}>
           <HomeContainer>
             <Header />
             <LandingHome />
-
-            {/* <EndingNote /> */}
-            {/* <Tab.Navigator
-              screenOptions={({ route }) => ({
-                tabBarShowLabel: true,
-                tabBarIcon: ({ focused, color, size }) => {
-                  let iconName;
-
-                  if (route.name === 'Home') {
-                    iconName = focused
-                      ? 'ios-information-circle'
-                      : 'ios-information-circle-outline';
-                  } else if (route.name === 'EndingNote') {
-                    iconName = focused ? 'ios-list-box' : 'ios-list';
-                  }
-
-                  // 어떤 아이콘이든 사용할 수 있음
-                  return <Icon name={iconName} size={size} color={color} />;
-                },
-              })}
-              initialRouteName="Home"
-            >
-              <Tab.Screen name="Home" component={LandingHome} />
-              <Tab.Screen name="EndingNote" component={EndingNote} />
-            </Tab.Navigator> */}
-            {/* <TabBar /> */}
           </HomeContainer>
         </AnimatedContainer>
       ) : (
@@ -81,11 +62,12 @@ const Home = () => {
               inputRange: [0, 1],
               outputRange: [1, 0], // 반대로 페이드 아웃
             }),
+            zIndex: 999,
           }}
         >
           <PreviewHome />
         </AnimatedContainer>
-      )}
+      )} */}
     </>
   );
 };

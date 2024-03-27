@@ -1,5 +1,5 @@
 import Container from '@/components/common/Container';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Text, ImageBackground } from 'react-native';
 import IconCard from '@assets/TabBar/icon-tab-home.svg';
 import styled from 'styled-components/native';
@@ -9,11 +9,20 @@ import ImageCardBackgroundDarkPurple from '@assets/EndingNote/Home/image-card-ba
 import ImageCardBackgroundPurple from '@assets/EndingNote/Home/image-card-background-purple.png';
 import ImageCardBackgroundOrange from '@assets/EndingNote/Home/image-card-background-orange.png';
 import ImageCardBackgroundYellow from '@assets/EndingNote/Home/image-card-background-yellow.png';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import Header from '@/components/Header';
+import { useNavigation } from '@react-navigation/native';
 
 const EndingNote = () => {
+  const navigation: any = useNavigation();
+  const goPlan = useCallback(
+    () => navigation.navigate('장수사진'),
+    [navigation],
+  );
+
   return (
     <ScrollView>
+      <Header isLogo={true} />
       <Container
         width="100%"
         height="100%"
@@ -53,9 +62,11 @@ const EndingNote = () => {
             <Card source={ImageCardBackgroundGreen} width="343px">
               <CardSubText color="#000">{'사전 연명의료 의향서'}</CardSubText>
             </Card>
-            <Card source={ImageCardBackgroundDarkPurple}>
-              <CardSubText>{'장례식 계획 세우기'}</CardSubText>
-            </Card>
+            <TouchableOpacity onPress={goPlan}>
+              <Card source={ImageCardBackgroundDarkPurple}>
+                <CardSubText>{'장례식 계획 세우기'}</CardSubText>
+              </Card>
+            </TouchableOpacity>
             <Card source={ImageCardBackgroundPurple}>
               <CardSubText>{'장례식 찾기'}</CardSubText>
             </Card>

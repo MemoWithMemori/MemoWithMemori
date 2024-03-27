@@ -1,4 +1,8 @@
 {
   "name": "memowithmemori",
-  "displayName": "memowithmemori"
+  "displayName": "memowithmemori",
+  "packagerOpts": {
+    "config": "metro.config.js",
+    "sourceExts": ["js", "jsx", "json", "wasm", "svg"]
+  }
 }

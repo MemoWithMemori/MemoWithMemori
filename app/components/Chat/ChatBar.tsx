@@ -9,7 +9,7 @@ import IconMori from '@assets/Chat/image-mori.png';
 // 화면 너비 가져오기
 const screenWidth = Dimensions.get('window').width;
 
-// 화면 너비에서 20을 뺀 값을 계산
+// 화면 너비에서 84을 뺀 값을 계산
 const calculatedWidth = screenWidth - 84;
 
 const ChatBar = (props) => {
@@ -22,7 +22,7 @@ const ChatBar = (props) => {
         text,
         createdAt: new Date(),
         user: {
-          _id: 'user2',
+          _id: 'user1',
           avatar: IconMori,
         },
       };
