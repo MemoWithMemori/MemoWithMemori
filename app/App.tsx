@@ -25,6 +25,7 @@ import Loading from './screens/Loading';
 import MainTabNavigator from './components/navigation/MainTabNavigator';
 import MakingProfileDetail from './screens/MakingProfileDetail';
 import LoadingPhotos from './screens/LoadingPhotos';
+import FuneralPlan from './screens/FuneralPlan';
 
 const Stack = createStackNavigator();
 
@@ -116,6 +117,13 @@ const App = () => {
             <Stack.Screen
               name="LoadingPhotos"
               component={LoadingPhotos}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="FuneralPlan"
+              component={FuneralPlan}
               options={{
                 headerShown: false,
               }}

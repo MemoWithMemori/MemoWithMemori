@@ -16,7 +16,7 @@ import { useNavigation } from '@react-navigation/native';
 const EndingNote = () => {
   const navigation: any = useNavigation();
   const goPlan = useCallback(
-    () => navigation.navigate('장수사진'),
+    () => navigation.navigate('FuneralPlan'),
     [navigation],
   );
 
