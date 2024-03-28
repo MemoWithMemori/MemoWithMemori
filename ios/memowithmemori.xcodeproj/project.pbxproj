@@ -11,9 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		20650A798E2CA2C79ACAC8A4 /* libPods-memowithmemori.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6BA40BCA03033E3B4D0CB9 /* libPods-memowithmemori.a */; };
-		3D9EB1AD2462FE8722AF7DDB /* libPods-memowithmemori-memowithmemoriTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 705EB24666203CD8C4636FE2 /* libPods-memowithmemori-memowithmemoriTests.a */; };
+		448BFEFADD87CA0A3E428A00 /* libPods-memowithmemori-memowithmemoriTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BABCE835D04D6ADF212354B /* libPods-memowithmemori-memowithmemoriTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D5A9C40D4092FA638B437312 /* libPods-memowithmemori.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BEDA4F3E109AC55A9FE448 /* libPods-memowithmemori.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +36,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = memowithmemori/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = memowithmemori/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = memowithmemori/main.m; sourceTree = "<group>"; };
-		19B2FD2D0D5B3E3C31329619 /* Pods-memowithmemori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori.debug.xcconfig"; path = "Target Support Files/Pods-memowithmemori/Pods-memowithmemori.debug.xcconfig"; sourceTree = "<group>"; };
-		53E0FCE3FBBD4E06D8AE76E4 /* Pods-memowithmemori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori.release.xcconfig"; path = "Target Support Files/Pods-memowithmemori/Pods-memowithmemori.release.xcconfig"; sourceTree = "<group>"; };
-		5F6BA40BCA03033E3B4D0CB9 /* libPods-memowithmemori.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memowithmemori.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		705EB24666203CD8C4636FE2 /* libPods-memowithmemori-memowithmemoriTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memowithmemori-memowithmemoriTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		70BFB43EC9AC74BAED737348 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori-memowithmemoriTests.debug.xcconfig"; path = "Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests.debug.xcconfig"; sourceTree = "<group>"; };
-		80C285ED678FDA195B8F68A9 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori-memowithmemoriTests.release.xcconfig"; path = "Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests.release.xcconfig"; sourceTree = "<group>"; };
+		1E4C7A04DE286BD312FABFF4 /* Pods-memowithmemori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori.debug.xcconfig"; path = "Target Support Files/Pods-memowithmemori/Pods-memowithmemori.debug.xcconfig"; sourceTree = "<group>"; };
+		5207A165EBCD24D2AA46CA75 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori-memowithmemoriTests.debug.xcconfig"; path = "Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests.debug.xcconfig"; sourceTree = "<group>"; };
+		698580BFAE3BBB070697F0BD /* Pods-memowithmemori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori.release.xcconfig"; path = "Target Support Files/Pods-memowithmemori/Pods-memowithmemori.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = memowithmemori/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9BABCE835D04D6ADF212354B /* libPods-memowithmemori-memowithmemoriTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memowithmemori-memowithmemoriTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBFA861D870F199B071DA517 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori-memowithmemoriTests.release.xcconfig"; path = "Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests.release.xcconfig"; sourceTree = "<group>"; };
+		D9BEDA4F3E109AC55A9FE448 /* libPods-memowithmemori.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memowithmemori.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9EB1AD2462FE8722AF7DDB /* libPods-memowithmemori-memowithmemoriTests.a in Frameworks */,
+				448BFEFADD87CA0A3E428A00 /* libPods-memowithmemori-memowithmemoriTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20650A798E2CA2C79ACAC8A4 /* libPods-memowithmemori.a in Frameworks */,
+				D5A9C40D4092FA638B437312 /* libPods-memowithmemori.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5F6BA40BCA03033E3B4D0CB9 /* libPods-memowithmemori.a */,
-				705EB24666203CD8C4636FE2 /* libPods-memowithmemori-memowithmemoriTests.a */,
+				D9BEDA4F3E109AC55A9FE448 /* libPods-memowithmemori.a */,
+				9BABCE835D04D6ADF212354B /* libPods-memowithmemori-memowithmemoriTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,10 +141,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				19B2FD2D0D5B3E3C31329619 /* Pods-memowithmemori.debug.xcconfig */,
-				53E0FCE3FBBD4E06D8AE76E4 /* Pods-memowithmemori.release.xcconfig */,
-				70BFB43EC9AC74BAED737348 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */,
-				80C285ED678FDA195B8F68A9 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */,
+				1E4C7A04DE286BD312FABFF4 /* Pods-memowithmemori.debug.xcconfig */,
+				698580BFAE3BBB070697F0BD /* Pods-memowithmemori.release.xcconfig */,
+				5207A165EBCD24D2AA46CA75 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */,
+				CBFA861D870F199B071DA517 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -163,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "memowithmemoriTests" */;
 			buildPhases = (
-				A4492CA2D4A0ECC2E05F3845 /* [CP] Check Pods Manifest.lock */,
+				4DDFCB2D1D8FBA94AA6D64B7 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				01C7E371E012828CA74FBD2D /* [CP] Embed Pods Frameworks */,
-				A9C5502EF2C6299FB4F51D92 /* [CP] Copy Pods Resources */,
+				F134B39B3A80AE7F5C749938 /* [CP] Embed Pods Frameworks */,
+				1920B9CA15C50104CEC93D82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,14 +184,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "memowithmemori" */;
 			buildPhases = (
-				A77C6FF26A2D8B01301D3DCC /* [CP] Check Pods Manifest.lock */,
+				FA6B46BDA43623ABCF15D42E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6C0255F05F9B308E00246EAA /* [CP] Embed Pods Frameworks */,
-				0412AC5749BAF9EE3269C5AB /* [CP] Copy Pods Resources */,
+				99B30CBDDBBB2E513D445389 /* [CP] Embed Pods Frameworks */,
+				85320BB4788211227C42AADE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,58 +272,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		01C7E371E012828CA74FBD2D /* [CP] Embed Pods Frameworks */ = {
+		1920B9CA15C50104CEC93D82 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0412AC5749BAF9EE3269C5AB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6C0255F05F9B308E00246EAA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A4492CA2D4A0ECC2E05F3845 /* [CP] Check Pods Manifest.lock */ = {
+		4DDFCB2D1D8FBA94AA6D64B7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -345,7 +311,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A77C6FF26A2D8B01301D3DCC /* [CP] Check Pods Manifest.lock */ = {
+		85320BB4788211227C42AADE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99B30CBDDBBB2E513D445389 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori/Pods-memowithmemori-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F134B39B3A80AE7F5C749938 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA6B46BDA43623ABCF15D42E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,23 +382,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9C5502EF2C6299FB4F51D92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -436,7 +436,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70BFB43EC9AC74BAED737348 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */;
+			baseConfigurationReference = 5207A165EBCD24D2AA46CA75 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -463,7 +463,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80C285ED678FDA195B8F68A9 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */;
+			baseConfigurationReference = CBFA861D870F199B071DA517 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -487,12 +487,15 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19B2FD2D0D5B3E3C31329619 /* Pods-memowithmemori.debug.xcconfig */;
+			baseConfigurationReference = 1E4C7A04DE286BD312FABFF4 /* Pods-memowithmemori.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64,amv7";
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = memowithmemori/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,11 +516,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53E0FCE3FBBD4E06D8AE76E4 /* Pods-memowithmemori.release.xcconfig */;
+			baseConfigurationReference = 698580BFAE3BBB070697F0BD /* Pods-memowithmemori.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = memowithmemori/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -584,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -648,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
