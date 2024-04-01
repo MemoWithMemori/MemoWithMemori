@@ -6,6 +6,8 @@ import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 import IconMori from '@assets/Chat/image-mori.png';
 
+import axios from 'axios';
+
 // 화면 너비 가져오기
 const screenWidth = Dimensions.get('window').width;
 
@@ -15,22 +17,55 @@ const calculatedWidth = screenWidth - 84;
 const ChatBar = (props) => {
   const { text, setText, messages, setMessages } = props;
 
-  const sendMessage = () => {
-    if (text.length > 0) {
-      const newMessage = {
-        _id: Math.random().toString(36).substr(2, 9),
-        text,
-        createdAt: new Date(),
-        user: {
-          _id: 'user1',
-          avatar: IconMori,
+  // 예시: API 요청을 위한 함수 (Axios 사용)
+  async function sendMessageToAPI(messageContent) {
+    try {
+      const response = await axios.post(
+        'https://us-central1-memori-7aab6.cloudfunctions.net/chatMORI',
+        {
+          message: messageContent,
         },
+      );
+      return response.data; // 서버로부터 받은 응답
+    } catch (error) {
+      console.error('메시지 전송 실패:', error);
+    }
+  }
+
+  // 예시: 메시지 전송 로직
+  const handleSendMessage = async () => {
+    if (!text) return; // 입력된 텍스트가 없으면 함수 종료
+
+    const newMessage = {
+      _id: Date.now().toString(), // 임시 ID 생성
+      text: text, // 입력된 텍스트
+      createdAt: new Date().toISOString(),
+      user: { _id: 'user1' }, // 보내는 사람
+    };
+
+    // 메시지 목록에 새 메시지 추가
+    setMessages((prevMessages) => [newMessage, ...prevMessages]);
+
+    // API로 메시지 전송 및 응답 처리
+    const apiResponse = await sendMessageToAPI(text);
+    if (apiResponse) {
+      // 응답으로 받은 메시지를 목록에 추가하는 로직 구현
+      const responseMessage = {
+        _id: Date.now().toString(), // 임시 ID 생성
+        text: apiResponse.content, // API 응답에서 받은 텍스트
+        createdAt: apiResponse.createdAt,
+        user: { _id: 'user2' }, // 받는 사람
       };
 
-      setMessages([newMessage, ...messages]);
-      setText('');
+      // 메시지 목록에 응답 메시지 추가
+      setMessages((prevMessages) => [responseMessage, ...prevMessages]);
     }
+
+    // 입력 필드 초기화
+    setText('');
   };
+
+  // ChatBar 컴포넌트 내에서 메시지 전송 버튼에 handleSendMessage 함수를 연결
 
   return (
     <ChatBarContainer
@@ -59,7 +94,7 @@ const ChatBar = (props) => {
           value={text}
           onChangeText={setText}
         />
-        <IconButtonSend onPress={sendMessage} />
+        <IconButtonSend onPress={handleSendMessage} />
       </Container>
     </ChatBarContainer>
   );

@@ -20,6 +20,11 @@ const EndingNote = () => {
     [navigation],
   );
 
+  const goRememberCardsList = useCallback(
+    () => navigation.navigate('RememberCardsList'),
+    [navigation],
+  );
+
   return (
     <ScrollView>
       <Header isLogo={true} />
@@ -43,7 +48,7 @@ const EndingNote = () => {
             <IconCard fill="#3E3E40" />
           </Container>
           <Card source={ImageCardBackgroundRed} width="351px" height="133px">
-            <CardText>
+            <CardText onPress={goRememberCardsList}>
               {'대화를 통해\n나의 기억들을 정리하고\n기록해볼까요?'}
             </CardText>
           </Card>

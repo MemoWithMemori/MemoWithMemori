@@ -26,6 +26,9 @@ import MainTabNavigator from './components/navigation/MainTabNavigator';
 import MakingProfileDetail from './screens/MakingProfileDetail';
 import LoadingPhotos from './screens/LoadingPhotos';
 import FuneralPlan from './screens/FuneralPlan';
+import FuneralPlanResultLoading from './screens/FuneralPlanResultLoading';
+import FuneralPlanResult from './screens/FuneralPlanResult';
+import RememberCardsList from './screens/RememberCardsList';
 
 const Stack = createStackNavigator();
 
@@ -124,6 +127,27 @@ const App = () => {
             <Stack.Screen
               name="FuneralPlan"
               component={FuneralPlan}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="FuneralPlanLoading"
+              component={FuneralPlanResultLoading}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="FuneralPlanResult"
+              component={FuneralPlanResult}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="RememberCardsList"
+              component={RememberCardsList}
               options={{
                 headerShown: false,
               }}

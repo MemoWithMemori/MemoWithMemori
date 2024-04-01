@@ -6,7 +6,7 @@ import { View } from 'react-native';
 
 import IconArrowLeftDark from '@assets/common/icon-arrow-left-dark.svg';
 
-const PlanningFuneralHeader = () => {
+const PlanningFuneralHeader = ({ isShown }: { isShown?: boolean }) => {
   const navigation: any = useNavigation();
   const goBack = useCallback(
     () => navigation.navigate('엔딩노트'),
@@ -26,7 +26,11 @@ const PlanningFuneralHeader = () => {
         <IconArrowLeftDark />
         <Title marginLeft="16px">{'장례식 계획 세우기'}</Title>
       </View>
-      <Title color="#898989" onPress={goBack}>
+      <Title
+        color="#898989"
+        onPress={goBack}
+        style={{ display: `${isShown ? 'none' : 'flex'}` }}
+      >
         {'나가기'}
       </Title>
     </Container>
