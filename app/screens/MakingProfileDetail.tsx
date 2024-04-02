@@ -74,6 +74,7 @@ const MakingProfileDetail = () => {
         maxWidth: 512,
         maxHeight: 512,
         includeBase64: true,
+        selectionLimit: 10,
       },
       (response) => {
         // 사용자가 선택을 취소한 경우

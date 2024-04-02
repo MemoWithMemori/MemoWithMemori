@@ -15,7 +15,7 @@ const screenWidth = Dimensions.get('window').width;
 const calculatedWidth = screenWidth - 84;
 
 const ChatBar = (props) => {
-  const { text, setText, messages, setMessages } = props;
+  const { text, setText, messages, setMessages, setSummaryText } = props;
 
   // 예시: API 요청을 위한 함수 (Axios 사용)
   async function sendMessageToAPI(messageContent) {
@@ -36,6 +36,9 @@ const ChatBar = (props) => {
   const handleSendMessage = async () => {
     if (!text) return; // 입력된 텍스트가 없으면 함수 종료
 
+    // 입력 필드 초기화
+    setText('');
+
     const newMessage = {
       _id: Date.now().toString(), // 임시 ID 생성
       text: text, // 입력된 텍스트
@@ -53,16 +56,18 @@ const ChatBar = (props) => {
       const responseMessage = {
         _id: Date.now().toString(), // 임시 ID 생성
         text: apiResponse.content, // API 응답에서 받은 텍스트
-        createdAt: apiResponse.createdAt,
-        user: { _id: 'user2' }, // 받는 사람
+        createdAt: new Date().toISOString(),
+        user: { _id: 'user2', avatar: IconMori }, // 받는 사람
       };
 
       // 메시지 목록에 응답 메시지 추가
       setMessages((prevMessages) => [responseMessage, ...prevMessages]);
+      setSummaryText(
+        [responseMessage, ...messages]
+          .filter((item) => item.user._id === 'user1')
+          .map((item) => item.text),
+      );
     }
-
-    // 입력 필드 초기화
-    setText('');
   };
 
   // ChatBar 컴포넌트 내에서 메시지 전송 버튼에 handleSendMessage 함수를 연결

@@ -18,6 +18,8 @@ import styled from 'styled-components/native';
 import IconMemo from '@assets/Chat/icon-mori.svg';
 import IconModalButton from '@assets/Chat/icon-modal-button.svg';
 
+import IconMori from '@assets/Chat/image-mori.png';
+
 const styles = StyleSheet.create({
   shareButton: {
     marginRight: 20, // 오른쪽 여백 조정
@@ -30,15 +32,29 @@ const styles = StyleSheet.create({
 
 const Chat = () => {
   const navigation: any = useNavigation();
-  const [messages, setMessages] = useState<any>([]);
+  const [messages, setMessages] = useState<any>([
+    {
+      _id: '1711993135450',
+      createdAt: new Date().toISOString(),
+      text: '대화를 마치고 싶으실 땐\n우측상단의 저장 버튼을\n눌러주세요. :)',
+      user: { _id: 'user2' },
+    },
+    {
+      _id: '1711993135451',
+      createdAt: new Date().toISOString(),
+      text: '안녕하세요,\n살면서 가장 행복했던 순간은\n언제인가요? ',
+      user: { _id: 'user2', avatar: IconMori },
+    },
+  ]);
   const [text, setText] = useState('');
+  const [summaryText, setSummaryText] = useState([]);
 
   const [modalVisible, setModalVisible] = useState(false);
 
   const goChat = useCallback(() => {
-    navigation.navigate('Loading');
+    navigation.navigate('Loading', { chat: messages });
     setModalVisible(false);
-  }, [navigation]);
+  }, [navigation, messages]);
 
   useEffect(() => {
     navigation.setOptions({
@@ -51,7 +67,7 @@ const Chat = () => {
         </TouchableOpacity>
       ),
     });
-  }, [navigation, setModalVisible]);
+  }, [navigation, messages]);
 
   const renderItem = ({ item, index }) => {
     // 첫 번째 메시지이거나 이전 메시지의 발신자와 현재 메시지의 발신자가 다른 경우에만 프로필 사진을 표시합니다.
@@ -68,39 +84,67 @@ const Chat = () => {
 
     return (
       <MessageContainer isUserMessage={item.user._id === 'user1'}>
-        {item.user._id === 'user2' && !item.isUserMessage && showAvatar && (
+        {item.user._id === 'user2' ? (
+          <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                width: 100,
+                display: `${showAvatar ? 'flex' : 'none'}`,
+              }}
+            >
+              <Image
+                source={item.user.avatar}
+                style={{
+                  width: 36,
+                  height: 36,
+                  marginTop: -8,
+                }}
+              />
+              <Text style={{ marginLeft: 8 }}>모리</Text>
+            </View>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: `${!isUserMessage ? 'row' : 'row-reverse'}`,
+                alignItems: 'flex-end',
+                marginLeft: 40,
+              }}
+            >
+              <MessageBubble
+                isUserMessage={isUserMessage}
+                showAvatar={showAvatar}
+              >
+                <MessageText isUserMessage={isUserMessage}>
+                  {item.text}
+                </MessageText>
+              </MessageBubble>
+              <MessageTimestamp isUserMessage={isUserMessage}>
+                {formatMessageTime(item.createdAt)}
+              </MessageTimestamp>
+            </View>
+          </View>
+        ) : (
           <View
             style={{
               display: 'flex',
-              flexDirection: 'row',
-              width: 100,
-              height: 90,
+              flexDirection: `${!isUserMessage ? 'row' : 'row-reverse'}`,
+              alignItems: 'flex-end',
             }}
           >
-            <Image
-              source={item.user.avatar}
-              style={{
-                width: 36,
-                height: 36,
-              }}
-            />
-            <Text style={{ marginLeft: 4 }}>모리</Text>
+            <MessageBubble
+              isUserMessage={isUserMessage}
+              showAvatar={showAvatar}
+            >
+              <MessageText isUserMessage={isUserMessage}>
+                {item.text}
+              </MessageText>
+            </MessageBubble>
+            <MessageTimestamp isUserMessage={isUserMessage}>
+              {formatMessageTime(item.createdAt)}
+            </MessageTimestamp>
           </View>
         )}
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: `${!isUserMessage ? 'row' : 'row-reverse'}`,
-            alignItems: 'flex-end',
-          }}
-        >
-          <MessageBubble isUserMessage={isUserMessage} showAvatar={showAvatar}>
-            <MessageText isUserMessage={isUserMessage}>{item.text}</MessageText>
-          </MessageBubble>
-          <MessageTimestamp isUserMessage={isUserMessage}>
-            {formatMessageTime(item.createdAt)}
-          </MessageTimestamp>
-        </View>
       </MessageContainer>
     );
   };
@@ -165,6 +209,7 @@ const Chat = () => {
           setText={setText}
           messages={messages}
           setMessages={setMessages}
+          setSummaryText={setSummaryText}
         />
       </KeyboardAvoidingView>
     </>
@@ -176,13 +221,15 @@ export default Chat;
 const ChatContainer = styled.View`
   padding: 10px;
   padding-bottom: 84px;
+  background-color: #f5f5f5;
 `;
 
 const MessageContainer = styled.View`
   width: 100%;
   flex-direction: row;
   align-items: flex-end;
-  margin-bottom: 8px;
+  margin-top: 8px;
+  background-color: #f5f5f5;
   justify-content: ${(props) =>
     props.isUserMessage ? 'flex-end' : 'flex-start'};
 `;
@@ -190,27 +237,28 @@ const MessageContainer = styled.View`
 const MessageBubble = styled.View`
   background-color: ${(props) => (props.isUserMessage ? '#47B97A' : '#EBEBEB')};
   border-radius: 16px;
-  border-top-right-radius: ${(props) => (props.isUserMessage ? '0px' : '20px')};
-  border-top-left-radius: ${(props) => (!props.isUserMessage ? '0px' : '20px')};
+  border-top-right-radius: ${(props) => (props.isUserMessage ? '0px' : '16px')};
+  border-top-left-radius: ${(props) => (!props.isUserMessage ? '0px' : '16px')};
   padding: 16px;
 
   margin-left: ${(props) =>
     !props.showAvatar && !props.isUserMessage
-      ? '52px'
+      ? '0px'
       : props.showAvatar && !props.isUserMessage
-        ? '-50px'
+        ? '0px'
         : '0px'};
 
-  max-width: 400px;
+  max-width: 226px;
 `;
 
-const MessageText = styled.Text`
+const MessageText = styled(Text)`
   color: ${(props) => (props.isUserMessage ? '#FFF' : '#1A1A1B')};
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 22px;
   letter-spacing: -0.4px;
+  flex-wrap: wrap;
 `;
 
 const MessageTimestamp = styled.Text`

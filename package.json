@@ -57,6 +57,7 @@
     "react-navigation": "^5.0.0",
     "react-transition-group": "^4.4.5",
     "readable-stream": "^1.0.33",
+    "recoil": "^0.7.7",
     "replicate": "^0.29.1",
     "stream-browserify": "^1.0.0",
     "styled-components": "^6.1.8",

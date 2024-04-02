@@ -1,5 +1,5 @@
 import Container from '@/components/common/Container';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, ActivityIndicator, ImageBackground } from 'react-native';
 import IconMemo from '@assets/Chat/icon-mori.svg';
 
@@ -7,18 +7,45 @@ import IconMemo2 from '@assets/Chat/image-mori.png';
 import styled from 'styled-components/native';
 import { MaterialIndicator } from 'react-native-indicators';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
-const Loading = () => {
+const Loading = ({ navigation: { navigate }, route }) => {
   const navigation: any = useNavigation();
+  const [summary, setSummary] = useState();
+  const _loadSummary = async () => {
+    console.log(route);
+    const { params } = route;
+    const textsFromUser1 = params.chat
+      .filter((item) => item.user._id === 'user1')
+      .map((item) => item.text);
+
+    console.log(params.chat);
+    console.log(textsFromUser1);
+
+    try {
+      const response = await axios.post(
+        'https://us-central1-memori-7aab6.cloudfunctions.net/summarize',
+        {
+          messages: textsFromUser1,
+        },
+      );
+      return response.data; // 서버로부터 받은 응답
+    } catch (error) {
+      console.error('메시지 전송 실패:', error);
+    }
+  };
+
+  const onSummary = async () => {
+    const apiResponse = await _loadSummary();
+    if (apiResponse) {
+      console.log(apiResponse);
+      navigation.navigate('RememberCards', { response: apiResponse });
+    }
+  };
 
   useEffect(() => {
-    let timer = setTimeout(() => {
-      navigation.navigate('RememberCards');
-    }, 2000);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    onSummary();
+    _loadSummary();
   }, []);
 
   return (

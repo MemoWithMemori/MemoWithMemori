@@ -50,8 +50,7 @@ const LoadingPhotos = ({ navigation: { navigate }, route }) => {
       'X-RapidAPI-Host': 'face-swap1.p.rapidapi.com',
     },
     data: {
-      source:
-        'https://res.cloudinary.com/source-models/image/upload/remote_sourcemodels/tia_nahal_260679/h_920--w_680--c_thumb--g_face--z_0.68-5_230406194416.jpg',
+      source: route.params.photo.assets[0].uri,
       target:
         'https://postfiles.pstatic.net/MjAyNDA0MDJfMjgg/MDAxNzExOTg2MTkxNDI2.TS7ubnbM6v4CsuqVegGsB7FUURlZk5gC3B06BjQt-V0g.0BwR9k9sgIB7v-H9cQDyCpE5l8Lt1iBkynEuvmaVCgkg.PNG/image_74.png?type=w966',
     },

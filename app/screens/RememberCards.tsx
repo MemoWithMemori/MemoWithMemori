@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const RememberCards = () => {
+const RememberCards = ({ navigation: { navigate }, route }) => {
   const navigation = useNavigation();
+  const answer = route.params.response.summary;
 
   useEffect(() => {
     navigation.setOptions({
@@ -57,9 +58,7 @@ const RememberCards = () => {
             paddingLeft="16px"
           >
             <Card source={ImageBackgroundMock}>
-              <CardText>
-                {'홍길동님의\n살면서 가장\n행복했던 순간은\n언제인가요?'}
-              </CardText>
+              <CardText>{'살면서 가장\n행복했던 순간은\n언제인가요?'}</CardText>
             </Card>
 
             <Container
@@ -70,11 +69,7 @@ const RememberCards = () => {
               marginRight="16px"
             >
               <View>
-                <CardAnswerText>
-                  {
-                    '가장 행복했던 순간은요,\n\n가족이 다 같이 모여서 웃고 이야기할 때예요. 자식들이 건강하고 행복하게 자라는 걸 보는 거, 그게 저에겐 최고의 행복이죠. 그런 순간들이 제 인생을 빛나게 만들어요.'
-                  }
-                </CardAnswerText>
+                <CardAnswerText>{answer}</CardAnswerText>
               </View>
             </Container>
           </Container>
