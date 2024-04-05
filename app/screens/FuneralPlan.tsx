@@ -1799,7 +1799,7 @@ const FuneralPlan = () => {
                     editable
                     multiline
                     numberOfLines={8}
-                    maxLength={40}
+                    maxLength={100}
                     style={{
                       width: 211,
                       height: 222,

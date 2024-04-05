@@ -27,7 +27,8 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
   const navigation = useNavigation();
   const answer = route.params.response.summary;
   const imageUrl = route.params.response.imgUrl;
-  const isShown = route.params.response.show;
+  const isShown = route.params.show;
+  const title = route.params.response.title;
 
   useEffect(() => {
     navigation.setOptions({
@@ -59,7 +60,11 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
             marginBottom="29px"
             paddingLeft="16px"
           >
-            <Card source={{ url: imageUrl }} resizeMode="stretch">
+            <Card
+              source={{ url: imageUrl }}
+              resizeMode="stretch"
+              imageStyle={{ borderRadius: 20 }}
+            >
               <CardText>{'살면서 가장\n행복했던 순간은\n언제인가요?'}</CardText>
             </Card>
 
@@ -67,6 +72,7 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
               width="343px"
               height="504px"
               paddingLeft="23px"
+              paddingRight="23px"
               paddingTop="23px"
               marginRight="16px"
               borderBottomLeftRadius="20px"
@@ -74,7 +80,7 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
               borderTopLeftRadius="20px"
               borderTopRightRadius="20px"
             >
-              <View>
+              <View style={{ flexWrap: 'wrap', width: '100%', height: '100%' }}>
                 <CardAnswerText>{answer}</CardAnswerText>
               </View>
             </Container>
@@ -197,6 +203,7 @@ const Card = styled(ImageBackground)`
   margin-right: 8px;
   padding-top: 28px;
   padding-left: 28px;
+  padding-right: 16px;
   padding-bottom: 15px;
   border-radius: 20px;
 

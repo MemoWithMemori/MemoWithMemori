@@ -49,7 +49,6 @@ const Loading = ({ navigation: { navigate }, route }) => {
 
   useEffect(() => {
     onSummary();
-    _loadSummary();
   }, []);
 
   return (

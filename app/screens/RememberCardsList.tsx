@@ -91,26 +91,32 @@ const RememberCardsList = () => {
               <SubText>{'더보기'}</SubText>
             </Container>
             <CardColor backgroundColor={'#D0BBFF'}>
-              <CardColorText>{'지금 가고싶은\n여행지는?'}</CardColorText>
+              <CardColorText>
+                {'나에게\n힘과 기쁨을 \n주는 것은\n무엇인가요?'}
+              </CardColorText>
             </CardColor>
             <CardColor backgroundColor={'#BBD6FF'}>
-              <CardColorText>{'나에게\n죽음이란?'}</CardColorText>
-            </CardColor>
-            <CardColor backgroundColor={'#D0C4FF'}>
               <CardColorText>
                 {'가장 친했던\n친구는\n누구인가요?'}
               </CardColorText>
             </CardColor>
-            <CardColor backgroundColor={'#ACCDFE'}>
+            <CardColor backgroundColor={'#D0C4FF'}>
               <CardColorText>
                 {'가장 기억에\n남는 영화가\n있나요?'}
               </CardColorText>
             </CardColor>
+            <CardColor backgroundColor={'#ACCDFE'}>
+              <CardColorText>
+                {'가장 힘들었던\n시기가\n있었나요?'}
+              </CardColorText>
+            </CardColor>
             <CardColor backgroundColor={'#FFE3AE'}>
-              <CardColorText>{'어릴적\n꿈은\n무엇이었나요?'}</CardColorText>
+              <CardColorText>
+                {'요즘의 제일\n관심사가\n무엇인가요?'}
+              </CardColorText>
             </CardColor>
             <CardColor backgroundColor={'#ACCDFE'}>
-              <CardColorText>{'지금 가고싶은\n여행지는?'}</CardColorText>
+              <CardColorText>{'나에게\n죽음이란?'}</CardColorText>
             </CardColor>
             <CardColor backgroundColor={'#B392FFC1'}>
               <CardColorText>
@@ -118,7 +124,7 @@ const RememberCardsList = () => {
               </CardColorText>
             </CardColor>
             <CardColor backgroundColor={'#63E095'}>
-              <CardColorText>{'기억에 남는\n장소가\n있나요?'}</CardColorText>
+              <CardColorText>{'지금 가고싶은\n여행지는?'}</CardColorText>
             </CardColor>
             <CardColor backgroundColor={'#FFE3AE'}>
               <CardColorText>
