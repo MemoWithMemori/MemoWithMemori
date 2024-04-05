@@ -20,7 +20,8 @@
       "@/*": ["./*"],
       "@components/*": ["components/*"],
       "@screens/*": ["screens/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "crypto": ["../../node_modules/crypto-js"]
     }
   },
   "exclude": [

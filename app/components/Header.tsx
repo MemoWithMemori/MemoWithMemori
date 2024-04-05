@@ -6,10 +6,15 @@ import IconNotification from '@assets/common/icon-notification.svg';
 import IconProfileDefault from '@assets/common/icon-profile-default.svg';
 import Container from './common/Container';
 
-const Header = () => {
+const Header = (props) => {
+  const { isLogo } = props;
   return (
     <HeaderContainer>
-      <IconMemo width={99} height={48} />
+      {isLogo ? (
+        <IconMemo width={99} height={48} />
+      ) : (
+        <HeaderTitle>{'나만의 장수사진'}</HeaderTitle>
+      )}
       <Container flexDirection="row" gap="8px" backgroundColor="#f5f5f5">
         <Circle>
           <IconNotification width={24} height={24} />
@@ -33,6 +38,13 @@ const HeaderContainer = styled.View`
   background-color: #f5f5f5;
 
   padding: 0 16px;
+`;
+
+const HeaderTitle = styled.Text`
+  color: #3e3e40;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 37px;
 `;
 
 const Circle = styled.View`

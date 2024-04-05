@@ -1,15 +1,20 @@
 import Container from '@/components/common/Container';
 import SearchBar from '@/components/common/SearchBar';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import ImageCardBackgroundBlue from '@assets/Home/image-card-background-blue.png';
 import ImageCardBackgroundOrange from '@assets/Home/image-card-background-orange.png';
 import ImageCardBackgroundRed from '@assets/Home/image-card-background-red.png';
 import IconArrowTopGray from '@assets/common/icon-arrow-top-gray.svg';
 import styled from 'styled-components/native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+
+import { useNavigation } from '@react-navigation/native';
 
 const LandingHome = () => {
+  const navigation: any = useNavigation();
+  const goChat = useCallback(() => navigation.navigate('Chat'), [navigation]);
+
   return (
     <ScrollView style={{ flex: 1 }}>
       <Container
@@ -28,18 +33,22 @@ const LandingHome = () => {
             marginBottom="29px"
             paddingLeft="16px"
           >
-            <Card source={ImageCardBackgroundBlue}>
-              <CardText>
-                {'살면서 가장\n'}
-                <Text style={{ color: '#FCFF61' }}>
-                  {'행복했던 순간'}
-                  <Text style={{ color: '#Ffffff' }}>{'은\n언제인가요?'}</Text>
-                </Text>
-              </CardText>
-              <CardButtonContainer width="120px">
-                <CardButtonText>{'질문카드 작성하기'}</CardButtonText>
-              </CardButtonContainer>
-            </Card>
+            <TouchableOpacity onPress={goChat}>
+              <Card source={ImageCardBackgroundBlue}>
+                <CardText>
+                  {'살면서 가장\n'}
+                  <Text style={{ color: '#FCFF61' }}>
+                    {'행복했던 순간'}
+                    <Text style={{ color: '#Ffffff' }}>
+                      {'은\n언제인가요?'}
+                    </Text>
+                  </Text>
+                </CardText>
+                <CardButtonContainer width="135px">
+                  <CardButtonText>{'질문카드 작성하기'}</CardButtonText>
+                </CardButtonContainer>
+              </Card>
+            </TouchableOpacity>
 
             <Card source={ImageCardBackgroundRed}>
               <View>
@@ -55,7 +64,7 @@ const LandingHome = () => {
                   {'모리가 도와드릴게요'}
                 </CardSubText>
               </View>
-              <CardButtonContainer width="143px">
+              <CardButtonContainer width="147px">
                 <CardButtonText>{'유언장 작성 시작하기'}</CardButtonText>
               </CardButtonContainer>
             </Card>
@@ -119,7 +128,7 @@ const CardSubText = styled.Text`
   margin-left: 12px;
 `;
 
-const CardButtonContainer = styled.View<{ width: string }>`
+const CardButtonContainer = styled(TouchableOpacity)<{ width: string }>`
   width: ${(props) => props.width};
   height: 35px;
 

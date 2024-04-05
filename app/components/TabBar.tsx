@@ -1,94 +1,87 @@
-import React, { useState } from 'react';
-import Container from './common/Container';
-import { Text, TouchableOpacity, View } from 'react-native';
-import IconTabCalculate from '@assets/TabBar/icon-tab-calculate.svg';
+// TabBar.js
+import React from 'react';
+import { TouchableOpacity, Text, View } from 'react-native';
 import IconTabHome from '@assets/TabBar/icon-tab-home.svg';
 import IconTabNote from '@assets/TabBar/icon-tab-note.svg';
 import IconTabPhoto from '@assets/TabBar/icon-tab-photo.svg';
-import styled from 'styled-components/native';
+import IconTabCalculate from '@assets/TabBar/icon-tab-calculate.svg';
 
-const MENUS = [
-  {
-    Icon: IconTabHome,
-    title: '홈',
-    key: 'home',
-    route: '/',
-  },
-  {
-    Icon: IconTabNote,
-    title: '엔딩노트',
-    key: 'note',
-    route: 'endingnote',
-  },
-  {
-    Icon: IconTabCalculate,
-    title: '재산 계산',
-    key: 'calculate',
-    route: 'calculate',
-  },
-  {
-    Icon: IconTabPhoto,
-    title: '장수 사진',
-    key: 'photo',
-    route: '/photo',
-  },
-];
-
-const TabBar = () => {
-  const [selectedMenu, setSelectedMenu] = useState('home');
+const TabBar = ({ state, descriptors, navigation }) => {
+  const getIconForRoute = (routeName) => {
+    switch (routeName) {
+      case '홈':
+        return IconTabHome;
+      case '엔딩노트':
+        return IconTabNote;
+      case '변호사 상담':
+        return IconTabCalculate;
+      case '장수사진':
+        return IconTabPhoto;
+      default:
+        return IconTabHome; // 기본값
+    }
+  };
 
   return (
-    <TabBarContainer>
-      {MENUS.map(({ Icon, title, key }) => {
+    <View
+      style={{
+        flexDirection: 'row',
+        height: 80,
+        justifyContent: 'space-around',
+        backgroundColor: '#303030',
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
+      }}
+    >
+      {state.routes.map((route, index) => {
+        const { options } = descriptors[route.key];
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+              ? options.title
+              : route.name;
+
+        const isFocused = state.index === index;
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+            canPreventDefault: true,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+          }
+        };
+
+        const Icon = getIconForRoute(route.name);
+
         return (
-          <TabBarObjectContainer key={key} onPress={() => setSelectedMenu(key)}>
-            <Icon fill={selectedMenu === key ? '#FFFFFF' : '#727078'} />
-            <TabBarObjectText
+          <TouchableOpacity
+            key={route.key}
+            onPress={onPress}
+            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+          >
+            <Icon
+              fill={isFocused ? '#FFFFFF' : '#727078'}
+              height={24}
+              width={24}
+            />
+            <Text
               style={{
-                color: `${selectedMenu === key ? '#FFFFFF' : '#727078'}`,
+                color: isFocused ? '#ffffff' : '#727078',
+                marginTop: 4,
               }}
             >
-              {title}
-            </TabBarObjectText>
-          </TabBarObjectContainer>
+              {label}
+            </Text>
+          </TouchableOpacity>
         );
       })}
-    </TabBarContainer>
+    </View>
   );
 };
 
 export default TabBar;
-
-const TabBarContainer = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 13px;
-  position: absolute;
-  bottom: 0;
-
-  width: 100%;
-  height: 80px;
-
-  background-color: #303030;
-
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-`;
-
-const TabBarObjectContainer = styled.View`
-  display: flex;
-  align-items: center;
-  margin-right: 26px;
-  margin-left: 26px;
-`;
-
-const TabBarObjectText = styled.Text`
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 14.76px;
-  letter-spacing: -0.3px;
-
-  margin-top: 4px;
-`;

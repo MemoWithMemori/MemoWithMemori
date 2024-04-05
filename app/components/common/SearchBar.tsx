@@ -30,6 +30,7 @@ const SearchBar = () => {
       <IconSearch />
       <SearchBarTextInput
         placeholder="홍길동님, 궁금하신게 있으신가요?"
+        placeholderTextColor="#A6AAAF"
         value={searchValue}
         onChangeText={setSearchValue}
       />

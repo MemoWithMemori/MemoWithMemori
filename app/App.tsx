@@ -1,50 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
+  Button,
   Text,
   useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Home from './screens/Home';
-import { NavigationContainer } from '@react-navigation/native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import {
+  GestureHandlerRootView,
+  TouchableOpacity,
+} from 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import Chat from './screens/Chat';
+import ChatHeader from './components/Chat/ChatHeader';
+import IconArrowLeftDark from '@assets/common/icon-arrow-left-dark.svg';
+import RememberCards from './screens/RememberCards';
+import Loading from './screens/Loading';
+import MainTabNavigator from './components/navigation/MainTabNavigator';
+import MakingProfileDetail from './screens/MakingProfileDetail';
+import LoadingPhotos from './screens/LoadingPhotos';
+import FuneralPlan from './screens/FuneralPlan';
+import FuneralPlanResultLoading from './screens/FuneralPlanResultLoading';
+import FuneralPlanResult from './screens/FuneralPlanResult';
+import RememberCardsList from './screens/RememberCardsList';
+import { RecoilRoot } from 'recoil';
 
-const Section = ({ children, title }) => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Stack = createStackNavigator();
+
+const CustomBackButton = () => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}
-      >
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}
-      >
-        {children}
-      </Text>
-    </View>
+    <TouchableOpacity
+      onPress={() => navigation.goBack()}
+      style={{ marginLeft: 10 }}
+    >
+      <IconArrowLeftDark />
+    </TouchableOpacity>
+  );
+};
+
+const CustomBackAnotherButton = () => {
+  const navigation: any = useNavigation();
+
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Home')}
+      style={{ marginLeft: 10 }}
+    >
+      <IconArrowLeftDark />
+    </TouchableOpacity>
   );
 };
 
@@ -52,40 +63,104 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? '#303030' : '#F5F5F5',
     flex: 1,
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      {/* <Home /> */}
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer>
-          <Home />
-        </NavigationContainer>
-      </GestureHandlerRootView>
-    </SafeAreaView>
+    <RecoilRoot>
+      <StatusBar backgroundColor="#F5F5F5" barStyle={'dark-content'} />
+      <SafeAreaView style={{ flex: 0, backgroundColor: '#F5F5F5' }} />
+      <SafeAreaView style={backgroundStyle}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Home"
+                component={MainTabNavigator}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Chat"
+                component={Chat}
+                options={{
+                  headerTitle: () => <ChatHeader title={'질문카드 작성'} />, // 커스텀 헤더 타이틀 컴포넌트
+                  headerLeft: () => <CustomBackButton />,
+                  headerTitleAlign: 'left',
+                  headerStyle: {
+                    backgroundColor: '#F5F5F5', // 헤더 배경 색상 설정
+                    height: 60, // 헤더 높이 설정
+                  },
+                }}
+              />
+              <Stack.Screen
+                name="Loading"
+                component={Loading}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="RememberCards"
+                component={RememberCards}
+                options={{
+                  headerTitle: () => <ChatHeader title={'기억카드'} />, // 커스텀 헤더 타이틀 컴포넌트
+                  headerLeft: () => <CustomBackAnotherButton />,
+                  headerTitleAlign: 'left',
+                  headerStyle: {
+                    backgroundColor: '#F5F5F5', // 헤더 배경 색상 설정
+                    height: 60, // 헤더 높이 설정
+                  },
+                }}
+              />
+              <Stack.Screen
+                name="MakingProfileDetail"
+                component={MakingProfileDetail}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="LoadingPhotos"
+                component={LoadingPhotos}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="FuneralPlan"
+                component={FuneralPlan}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="FuneralPlanLoading"
+                component={FuneralPlanResultLoading}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="FuneralPlanResult"
+                component={FuneralPlanResult}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="RememberCardsList"
+                component={RememberCardsList}
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </GestureHandlerRootView>
+      </SafeAreaView>
+    </RecoilRoot>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
