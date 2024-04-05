@@ -11,9 +11,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		367B4A6FCF1E436EAEA049AC /* Pretendard-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4FD1722F5F64266839D1E50 /* Pretendard-700.ttf */; };
 		448BFEFADD87CA0A3E428A00 /* libPods-memowithmemori-memowithmemoriTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BABCE835D04D6ADF212354B /* libPods-memowithmemori-memowithmemoriTests.a */; };
+		572438CD77A84096B3437949 /* Pretendard-600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4512888CFDE43FC86C52F4F /* Pretendard-600.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9947243E8DDF42D1A3FE759A /* Pretendard-800.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7021C068D280487A9E6BA07E /* Pretendard-800.ttf */; };
+		AA39AFF5830D4CAF9EBFCCC3 /* Pretendard-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7293A22DC1C747979D1672F5 /* Pretendard-400.ttf */; };
+		D28CE0F82BBD7CC6008DF55B /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = D28CE0F72BBD7CC6008DF55B /* Fonts */; };
 		D5A9C40D4092FA638B437312 /* libPods-memowithmemori.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BEDA4F3E109AC55A9FE448 /* libPods-memowithmemori.a */; };
+		F16CF8EB4B274DF2BBFDBB28 /* Pretendard-500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79E114B6829F430DA9581EFC /* Pretendard-500.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +45,15 @@
 		1E4C7A04DE286BD312FABFF4 /* Pods-memowithmemori.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori.debug.xcconfig"; path = "Target Support Files/Pods-memowithmemori/Pods-memowithmemori.debug.xcconfig"; sourceTree = "<group>"; };
 		5207A165EBCD24D2AA46CA75 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori-memowithmemoriTests.debug.xcconfig"; path = "Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests.debug.xcconfig"; sourceTree = "<group>"; };
 		698580BFAE3BBB070697F0BD /* Pods-memowithmemori.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori.release.xcconfig"; path = "Target Support Files/Pods-memowithmemori/Pods-memowithmemori.release.xcconfig"; sourceTree = "<group>"; };
+		7021C068D280487A9E6BA07E /* Pretendard-800.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-800.ttf"; path = "../app/assets/fonts/Pretendard-800.ttf"; sourceTree = "<group>"; };
+		7293A22DC1C747979D1672F5 /* Pretendard-400.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-400.ttf"; path = "../app/assets/fonts/Pretendard-400.ttf"; sourceTree = "<group>"; };
+		79E114B6829F430DA9581EFC /* Pretendard-500.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-500.ttf"; path = "../app/assets/fonts/Pretendard-500.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = memowithmemori/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BABCE835D04D6ADF212354B /* libPods-memowithmemori-memowithmemoriTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memowithmemori-memowithmemoriTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4512888CFDE43FC86C52F4F /* Pretendard-600.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-600.ttf"; path = "../app/assets/fonts/Pretendard-600.ttf"; sourceTree = "<group>"; };
+		C4FD1722F5F64266839D1E50 /* Pretendard-700.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-700.ttf"; path = "../app/assets/fonts/Pretendard-700.ttf"; sourceTree = "<group>"; };
 		CBFA861D870F199B071DA517 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memowithmemori-memowithmemoriTests.release.xcconfig"; path = "Target Support Files/Pods-memowithmemori-memowithmemoriTests/Pods-memowithmemori-memowithmemoriTests.release.xcconfig"; sourceTree = "<group>"; };
+		D28CE0F72BBD7CC6008DF55B /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		D9BEDA4F3E109AC55A9FE448 /* libPods-memowithmemori.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-memowithmemori.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -86,6 +98,7 @@
 		13B07FAE1A68108700A75B9A /* memowithmemori */ = {
 			isa = PBXGroup;
 			children = (
+				D28CE0F72BBD7CC6008DF55B /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -123,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				BC130B35D1A24D24A656F23B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +161,18 @@
 				CBFA861D870F199B071DA517 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BC130B35D1A24D24A656F23B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7293A22DC1C747979D1672F5 /* Pretendard-400.ttf */,
+				79E114B6829F430DA9581EFC /* Pretendard-500.ttf */,
+				A4512888CFDE43FC86C52F4F /* Pretendard-600.ttf */,
+				C4FD1722F5F64266839D1E50 /* Pretendard-700.ttf */,
+				7021C068D280487A9E6BA07E /* Pretendard-800.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D2E5713F2BAAC85A0069F2F4 /* Fonts */ = {
@@ -208,7 +234,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -252,6 +279,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				AA39AFF5830D4CAF9EBFCCC3 /* Pretendard-400.ttf in Resources */,
+				F16CF8EB4B274DF2BBFDBB28 /* Pretendard-500.ttf in Resources */,
+				572438CD77A84096B3437949 /* Pretendard-600.ttf in Resources */,
+				367B4A6FCF1E436EAEA049AC /* Pretendard-700.ttf in Resources */,
+				9947243E8DDF42D1A3FE759A /* Pretendard-800.ttf in Resources */,
+				D28CE0F82BBD7CC6008DF55B /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,13 +471,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5207A165EBCD24D2AA46CA75 /* Pods-memowithmemori-memowithmemoriTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = memowithmemoriTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,10 +499,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBFA861D870F199B071DA517 /* Pods-memowithmemori-memowithmemoriTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = memowithmemoriTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,6 +530,7 @@
 				DEVELOPMENT_TEAM = KQ3A356K69;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64,amv7";
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = memowithmemori/Info.plist;
@@ -523,6 +559,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ3A356K69;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = memowithmemori/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -574,6 +611,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -645,6 +683,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;

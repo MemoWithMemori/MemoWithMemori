@@ -18,7 +18,7 @@ const MainTabNavigator = () => {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="재산계산"
+        name="변호사 상담"
         component={CalculateWealth}
         options={{ headerShown: false }}
       />

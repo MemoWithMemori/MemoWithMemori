@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '../common/Container';
 import IconChatDefault from '@assets/Chat/icon-chatting-white.svg';
 import IconButtonSend from '@assets/Chat/icon-button-send-messages.svg';
@@ -7,6 +7,10 @@ import styled from 'styled-components/native';
 import IconMori from '@assets/Chat/image-mori.png';
 
 import axios from 'axios';
+import Voice from '@react-native-community/voice';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import IconChatting from '@assets/Chat/icon-chatting.svg';
 
 // 화면 너비 가져오기
 const screenWidth = Dimensions.get('window').width;
@@ -16,6 +20,48 @@ const calculatedWidth = screenWidth - 84;
 
 const ChatBar = (props) => {
   const { text, setText, messages, setMessages, setSummaryText } = props;
+
+  const [recording, setRecording] = useState<boolean>(false);
+
+  const speechStartHandler = (e) => {
+    console.log('speechStart successful', e);
+  };
+  const speechEndHandler = (e) => {
+    console.log('stop handler', e);
+  };
+
+  const startRecording = async () => {
+    console.log(recording);
+    if (recording) {
+      try {
+        await Voice.stop();
+        setRecording(false);
+      } catch (error) {
+        console.log('error', error);
+      }
+    } else {
+      setRecording(true);
+      try {
+        await Voice.start('ko-KR');
+      } catch (error) {
+        console.log('error', error);
+      }
+    }
+  };
+
+  const speechResultsHandler = (e) => {
+    const text = e.value[0];
+    setText(text);
+  };
+
+  useEffect(() => {
+    Voice.onSpeechStart = speechStartHandler;
+    Voice.onSpeechEnd = speechEndHandler;
+    Voice.onSpeechResults = speechResultsHandler;
+    return () => {
+      Voice.destroy().then(Voice.removeAllListeners);
+    };
+  }, []);
 
   // 예시: API 요청을 위한 함수 (Axios 사용)
   async function sendMessageToAPI(messageContent) {
@@ -80,7 +126,9 @@ const ChatBar = (props) => {
       justifyContent="center"
       flexDirection="row"
     >
-      <IconChatDefault />
+      <TouchableOpacity onPress={startRecording}>
+        {recording ? <IconChatting /> : <IconChatDefault />}
+      </TouchableOpacity>
       <Container
         flexDirection="row"
         width={calculatedWidth + 'px'}
@@ -95,7 +143,8 @@ const ChatBar = (props) => {
         borderTopRightRadius="12px"
       >
         <SearchBarTextInput
-          placeholder="내용을 적어주세요."
+          placeholder={recording ? '음성을 듣고있어요' : '내용을 적어주세요.'}
+          placeholderTextColor="#A6AAAF"
           value={text}
           onChangeText={setText}
         />

@@ -63,14 +63,15 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? '#303030' : '#F5F5F5',
     flex: 1,
   };
 
   return (
     <RecoilRoot>
+      <StatusBar backgroundColor="#F5F5F5" barStyle={'dark-content'} />
+      <SafeAreaView style={{ flex: 0, backgroundColor: '#F5F5F5' }} />
       <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <GestureHandlerRootView style={{ flex: 1 }}>
           <NavigationContainer>
             <Stack.Navigator>

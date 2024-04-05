@@ -47,11 +47,13 @@ const EndingNote = () => {
             <Title>{'질문/기억카드 리스트'}</Title>
             <IconCard fill="#3E3E40" />
           </Container>
-          <Card source={ImageCardBackgroundRed} width="351px" height="133px">
-            <CardText onPress={goRememberCardsList}>
-              {'대화를 통해\n나의 기억들을 정리하고\n기록해볼까요?'}
-            </CardText>
-          </Card>
+          <TouchableOpacity onPress={goRememberCardsList}>
+            <Card source={ImageCardBackgroundRed} width="351px" height="133px">
+              <CardText>
+                {'대화를 통해\n나의 기억들을 정리하고\n기록해볼까요?'}
+              </CardText>
+            </Card>
+          </TouchableOpacity>
         </Container>
         <Line />
         <Container
@@ -73,16 +75,20 @@ const EndingNote = () => {
               </Card>
             </TouchableOpacity>
             <Card source={ImageCardBackgroundPurple}>
-              <CardSubText>{'장례식 찾기'}</CardSubText>
+              <CardSubText>{'버킷리스트'}</CardSubText>
             </Card>
             <Card source={ImageCardBackgroundOrange}>
               <CardSubText color="#000">
                 {'유언장/상속\n계획 세우기'}
               </CardSubText>
             </Card>
-            <Card source={ImageCardBackgroundYellow}>
-              <CardSubText color="#000">{'유품정리 계획'}</CardSubText>
-            </Card>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('변호사 상담')}
+            >
+              <Card source={ImageCardBackgroundYellow}>
+                <CardSubText color="#000">{'변호사 상담'}</CardSubText>
+              </Card>
+            </TouchableOpacity>
           </CardWrapContainer>
         </Container>
       </Container>

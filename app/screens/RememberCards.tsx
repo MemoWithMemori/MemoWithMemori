@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
 const RememberCards = ({ navigation: { navigate }, route }) => {
   const navigation = useNavigation();
   const answer = route.params.response.summary;
+  const imageUrl = route.params.response.imgUrl;
+  const isShown = route.params.response.show;
 
   useEffect(() => {
     navigation.setOptions({
@@ -57,7 +59,7 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
             marginBottom="29px"
             paddingLeft="16px"
           >
-            <Card source={ImageBackgroundMock}>
+            <Card source={{ url: imageUrl }} resizeMode="stretch">
               <CardText>{'살면서 가장\n행복했던 순간은\n언제인가요?'}</CardText>
             </Card>
 
@@ -67,6 +69,10 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
               paddingLeft="23px"
               paddingTop="23px"
               marginRight="16px"
+              borderBottomLeftRadius="20px"
+              borderBottomRightRadius="20px"
+              borderTopLeftRadius="20px"
+              borderTopRightRadius="20px"
             >
               <View>
                 <CardAnswerText>{answer}</CardAnswerText>
@@ -113,69 +119,71 @@ const RememberCards = ({ navigation: { navigate }, route }) => {
             </CardEditButtonText>
           </Container>
         </Container>
-        <Container width="100%" marginTop="40px" backgroundColor="#f5f5f5">
-          <Container
-            width="346px"
-            alignItems="flex-start"
-            backgroundColor="#f5f5f5"
-          >
-            <Title>{'다른 질문에도 답해볼까요?'}</Title>
+        {isShown && (
+          <Container width="100%" marginTop="40px" backgroundColor="#f5f5f5">
             <Container
-              flexDirection="row"
-              width="100%"
-              justifyContent="center"
-              marginTop="12px"
+              width="346px"
+              alignItems="flex-start"
               backgroundColor="#f5f5f5"
             >
+              <Title>{'다른 질문에도 답해볼까요?'}</Title>
               <Container
-                backgroundColor="#D0BBFF"
-                width="110px"
-                height="140px"
-                borderBottomLeftRadius="10px"
-                borderBottomRightRadius="10px"
-                borderTopLeftRadius="10px"
-                borderTopRightRadius="10px"
-                marginRight="8px"
-                alignItems="flex-start"
-                paddingTop="12px"
-                paddingLeft="12px"
+                flexDirection="row"
+                width="100%"
+                justifyContent="center"
+                marginTop="12px"
+                backgroundColor="#f5f5f5"
               >
-                <SmallCardTitle>{'지금 가고싶은\n여행지는?'}</SmallCardTitle>
-              </Container>
-              <Container
-                backgroundColor="#86B7FF"
-                width="110px"
-                height="140px"
-                borderBottomLeftRadius="10px"
-                borderBottomRightRadius="10px"
-                borderTopLeftRadius="10px"
-                borderTopRightRadius="10px"
-                marginRight="8px"
-                alignItems="flex-start"
-                paddingTop="12px"
-                paddingLeft="12px"
-              >
-                <SmallCardTitle>{'나에게\n죽음이란?'}</SmallCardTitle>
-              </Container>
-              <Container
-                backgroundColor="#D0C4FF"
-                width="110px"
-                height="140px"
-                borderBottomLeftRadius="10px"
-                borderBottomRightRadius="10px"
-                borderTopLeftRadius="10px"
-                borderTopRightRadius="10px"
-                alignItems="flex-start"
-                paddingTop="12px"
-                paddingLeft="12px"
-              >
-                <SmallCardTitle>
-                  {'가장 친했던\n친구는\n누구인가요?'}
-                </SmallCardTitle>
+                <Container
+                  backgroundColor="#D0BBFF"
+                  width="110px"
+                  height="140px"
+                  borderBottomLeftRadius="10px"
+                  borderBottomRightRadius="10px"
+                  borderTopLeftRadius="10px"
+                  borderTopRightRadius="10px"
+                  marginRight="8px"
+                  alignItems="flex-start"
+                  paddingTop="12px"
+                  paddingLeft="12px"
+                >
+                  <SmallCardTitle>{'지금 가고싶은\n여행지는?'}</SmallCardTitle>
+                </Container>
+                <Container
+                  backgroundColor="#86B7FF"
+                  width="110px"
+                  height="140px"
+                  borderBottomLeftRadius="10px"
+                  borderBottomRightRadius="10px"
+                  borderTopLeftRadius="10px"
+                  borderTopRightRadius="10px"
+                  marginRight="8px"
+                  alignItems="flex-start"
+                  paddingTop="12px"
+                  paddingLeft="12px"
+                >
+                  <SmallCardTitle>{'나에게\n죽음이란?'}</SmallCardTitle>
+                </Container>
+                <Container
+                  backgroundColor="#D0C4FF"
+                  width="110px"
+                  height="140px"
+                  borderBottomLeftRadius="10px"
+                  borderBottomRightRadius="10px"
+                  borderTopLeftRadius="10px"
+                  borderTopRightRadius="10px"
+                  alignItems="flex-start"
+                  paddingTop="12px"
+                  paddingLeft="12px"
+                >
+                  <SmallCardTitle>
+                    {'가장 친했던\n친구는\n누구인가요?'}
+                  </SmallCardTitle>
+                </Container>
               </Container>
             </Container>
           </Container>
-        </Container>
+        )}
       </Container>
     </ScrollView>
   );
@@ -190,6 +198,7 @@ const Card = styled(ImageBackground)`
   padding-top: 28px;
   padding-left: 28px;
   padding-bottom: 15px;
+  border-radius: 20px;
 
   display: flex;
   flex-direction: column;

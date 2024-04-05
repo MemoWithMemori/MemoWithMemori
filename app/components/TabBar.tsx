@@ -13,7 +13,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
         return IconTabHome;
       case '엔딩노트':
         return IconTabNote;
-      case '재산계산':
+      case '변호사 상담':
         return IconTabCalculate;
       case '장수사진':
         return IconTabPhoto;
@@ -64,9 +64,16 @@ const TabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
           >
-            <Icon fill={isFocused ? '#FFFFFF' : '#727078'} />
+            <Icon
+              fill={isFocused ? '#FFFFFF' : '#727078'}
+              height={24}
+              width={24}
+            />
             <Text
-              style={{ color: isFocused ? '#ffffff' : '#727078', marginTop: 4 }}
+              style={{
+                color: isFocused ? '#ffffff' : '#727078',
+                marginTop: 4,
+              }}
             >
               {label}
             </Text>

@@ -24,8 +24,9 @@ const Loading = ({ navigation: { navigate }, route }) => {
 
     try {
       const response = await axios.post(
-        'https://us-central1-memori-7aab6.cloudfunctions.net/summarize',
+        'https://us-central1-memori-7aab6.cloudfunctions.net/addMemoryCard',
         {
+          title: '가장 행복했던\n순간은\n언제인가요?',
           messages: textsFromUser1,
         },
       );
@@ -39,7 +40,10 @@ const Loading = ({ navigation: { navigate }, route }) => {
     const apiResponse = await _loadSummary();
     if (apiResponse) {
       console.log(apiResponse);
-      navigation.navigate('RememberCards', { response: apiResponse });
+      navigation.navigate('RememberCards', {
+        response: apiResponse,
+        show: true,
+      });
     }
   };
 

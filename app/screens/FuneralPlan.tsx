@@ -1191,6 +1191,7 @@ const FuneralPlan = () => {
                         onChangeText={setText1}
                         value={tex1}
                         placeholder={'여기에 입력해주세요.'}
+                        placeholderTextColor="#A6AAAF"
                       />
                       <SelectButton
                         style={{
@@ -1450,7 +1451,17 @@ const FuneralPlan = () => {
                     </View>
                   </MessageContainer>
                 )
-              ) : null}
+              ) : (
+                <MessageContainer isUserMessage={true}>
+                  <View
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row-reverse',
+                      alignItems: 'flex-end',
+                    }}
+                  />
+                </MessageContainer>
+              )}
             </ScrollView>
           ) : pages === 9 ? (
             <>
@@ -1801,6 +1812,7 @@ const FuneralPlan = () => {
                     onChangeText={setText2}
                     value={text2}
                     placeholder={'여기에 입력해주세요.'}
+                    placeholderTextColor="#A6AAAF"
                   />
                   <SelectButton
                     style={{
@@ -1893,6 +1905,7 @@ const FuneralPlan = () => {
                         onChangeText={setText3}
                         value={text3}
                         placeholder={'여기에 입력해주세요.'}
+                        placeholderTextColor="#A6AAAF"
                       />
                       <SelectButton
                         style={{
@@ -1993,6 +2006,7 @@ const FuneralPlan = () => {
                         onChangeText={setText4}
                         value={text4}
                         placeholder={'여기에 입력해주세요.'}
+                        placeholderTextColor="#A6AAAF"
                       />
                       <SelectButton
                         style={{

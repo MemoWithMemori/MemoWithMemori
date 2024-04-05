@@ -23,10 +23,8 @@ const MakingProfile = () => {
         <Header isLogo={false} />
         <Card source={ImageBackgroundIntroduceProfile}>
           <CardTitle>{'아직 장수사진을 찍으신 적이 없으신가요?'}</CardTitle>
-          <CardButton>
-            <CardButtonText onPress={goMakieProfile}>
-              {'지금 시작하기'}
-            </CardButtonText>
+          <CardButton onPress={goMakieProfile}>
+            <CardButtonText>{'지금 시작하기'}</CardButtonText>
           </CardButton>
         </Card>
         <Container alignItems="flex-start" backgroundColor="#f5f5f5">
@@ -100,7 +98,7 @@ const CardTitle = styled.Text`
   margin-bottom: 10px;
 `;
 
-const CardButton = styled.View`
+const CardButton = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;

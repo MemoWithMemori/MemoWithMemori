@@ -1,13 +1,37 @@
 import RememberCardsHeader from '@/components/RememberCards/RememberCardsHeader';
 import Container from '@/components/common/Container';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 
-import ImageBackgroundMock from '@assets/RememberCards/image-background-list.png';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 const RememberCardsList = () => {
+  const navigation: any = useNavigation();
+  const [cards, setCards] = useState({});
+  useEffect(() => {
+    _loadData();
+  }, []);
+
+  const onPress = (obj) => {
+    navigation.navigate('RememberCards', { response: obj, show: false });
+  };
+
+  const _loadData = async () => {
+    try {
+      const response = await axios.get(
+        'https://memori-7aab6-default-rtdb.firebaseio.com/memoryCard.json',
+      );
+      console.log(response.data);
+      setCards(response.data);
+      return response.data; // 서버로부터 받은 응답
+    } catch (error) {
+      console.error('메시지 전송 실패:', error);
+    }
+  };
+
   return (
     <ScrollView>
       <Container
@@ -33,9 +57,25 @@ const RememberCardsList = () => {
             <Text>{'기억 카드'}</Text>
             <SubText>{'더보기'}</SubText>
           </Container>
-          <Card source={ImageBackgroundMock}>
-            <CardText>{'가장 행복했던 순간은\n언제인가요?'}</CardText>
-          </Card>
+          <CardContainer style={{ flexDirection: 'row' }}>
+            {Object.values(cards).map((obj: any, index: number) => {
+              return (
+                <TouchableOpacity
+                  style={{ borderTopLeftRadius: 20 }}
+                  onPress={() => onPress(obj)}
+                  key={index}
+                >
+                  <Card
+                    imageStyle={{ borderRadius: 10 }}
+                    source={{ uri: obj.imgUrl }}
+                    resizeMode="stretch"
+                  >
+                    <CardText>{obj.title}</CardText>
+                  </Card>
+                </TouchableOpacity>
+              );
+            })}
+          </CardContainer>
         </Container>
         <Container>
           <CardContainer backgroundColor="#F5F5F5">
@@ -115,6 +155,10 @@ const Card = styled(ImageBackground)`
   margin-top: 12px;
   padding-top: 12px;
   padding-left: 11px;
+  padding-right: 11px;
+  margin-right: 4px;
+  margin-left: 4px;
+  border-radius: 20px;
 
   display: flex;
   flex-direction: column;

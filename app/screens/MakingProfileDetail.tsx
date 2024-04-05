@@ -40,6 +40,7 @@ import IconCheckX from '@assets/MakeProfile/icon-circle-x.svg';
 
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 const MakingProfileDetail = () => {
   const [page, setPage] = useState<number>(0);
@@ -87,9 +88,13 @@ const MakingProfileDetail = () => {
           return; // 여기서 함수 실행을 종료해야 합니다.
         }
 
+        uploadImage(response.assets[0].uri);
+
         // 선택된 이미지 처리
-        setResponse(response);
-        setImageFile(response.assets[0].base64);
+        // setResponse(response.assets[0].uri);
+        // setImageFile(response.assets[0].base64);
+
+        console.log(response);
 
         // 이미지 상태 업데이트 후에 화면 이동 처리
         // setState는 비동기적으로 작동하기 때문에, setState의 콜백을 사용하거나
@@ -100,12 +105,41 @@ const MakingProfileDetail = () => {
     ).catch((error) => console.log(error));
   };
 
+  const uploadImage = async (imageUri) => {
+    const formData = new FormData();
+    formData.append('file', {
+      uri: imageUri,
+      type: 'image/jpeg', // 또는 선택한 이미지의 실제 타입
+      name: 'upload.jpg', // 또는 다른 이름
+    });
+    formData.append('api_key', '321349956876236');
+    formData.append('upload_preset', 'nvhjcbt2'); // Cloudinary에서 설정한 업로드 프리셋
+
+    try {
+      const response = await axios.post(
+        'https://api.cloudinary.com/v1_1/dtqwwxqk8/image/upload',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
+      );
+
+      const imageUrl = response.data.secure_url; // 업로드된 이미지의 URL
+      setImageFile(imageUrl);
+    } catch (error) {
+      console.error('Error uploading image: ', error);
+      return null;
+    }
+  };
+
   // navigation.navigate 호출을 위해 useEffect 사용
   useEffect(() => {
     console.log(response);
     // console.log(imageFile);
     if (imageFile) {
-      navigation.navigate('LoadingPhotos', { photo: response });
+      navigation.navigate('LoadingPhotos', { photo: imageFile });
     }
   }, [imageFile]); // imageFile 상태가 변경될 때만 실행됩니다.
 
@@ -113,60 +147,62 @@ const MakingProfileDetail = () => {
     <Container backgroundColor="#f5f5f5" paddingLeft="16px" paddingRight="16px">
       <MakingProfileHeader />
       {page === 0 ? (
-        <Container
-          width="100%"
-          alignItems="flex-start"
-          backgroundColor="#f5f5f5"
-        >
-          <Title>{'성별이 어떻게 되세요?'}</Title>
-          <ContainetCustom
-            selected={selectedType.gender === '남성'}
-            onPress={() => handleSelection('gender', '남성')}
+        <ScrollView style={{ height: '100%', width: '100%' }}>
+          <Container
+            width="100%"
+            alignItems="flex-start"
+            backgroundColor="#f5f5f5"
           >
-            <IconBoy
-              fill={selectedType.gender !== '남성' ? '#353437' : '#ffffff'}
-            />
-            <SubTitle selected={selectedType.gender === '남성'}>
-              {'남성'}
-            </SubTitle>
-            <View
-              style={{
-                position: 'absolute',
-                top: 6,
-                right: 16,
-                display: `${selectedType.gender === '남성' ? 'flex' : 'none'}`,
-              }}
+            <Title>{'성별이 어떻게 되세요?'}</Title>
+            <ContainetCustom
+              selected={selectedType.gender === '남성'}
+              onPress={() => handleSelection('gender', '남성')}
             >
-              <IconCircleCheck />
-            </View>
-          </ContainetCustom>
-          <ContainetCustom
-            selected={selectedType.gender === '여성'}
-            onPress={() => handleSelection('gender', '여성')}
-          >
-            <IconGirl
-              fill={selectedType.gender !== '여성' ? '#353437' : '#ffffff'}
-            />
-            <SubTitle selected={selectedType.gender === '여성'}>
-              {'여성'}
-            </SubTitle>
-            <View
-              style={{
-                position: 'absolute',
-                top: 6,
-                right: 16,
-                display: `${selectedType.gender === '여성' ? 'flex' : 'none'}`,
-              }}
+              <IconBoy
+                fill={selectedType.gender !== '남성' ? '#353437' : '#ffffff'}
+              />
+              <SubTitle selected={selectedType.gender === '남성'}>
+                {'남성'}
+              </SubTitle>
+              <View
+                style={{
+                  position: 'absolute',
+                  top: 6,
+                  right: 16,
+                  display: `${selectedType.gender === '남성' ? 'flex' : 'none'}`,
+                }}
+              >
+                <IconCircleCheck />
+              </View>
+            </ContainetCustom>
+            <ContainetCustom
+              selected={selectedType.gender === '여성'}
+              onPress={() => handleSelection('gender', '여성')}
             >
-              <IconCircleCheck />
-            </View>
-          </ContainetCustom>
-          {selectedType.gender && (
-            <ButtonCustom onPress={increasePages} marginTop="77px">
-              <ButtonTitle>{'다음'}</ButtonTitle>
-            </ButtonCustom>
-          )}
-        </Container>
+              <IconGirl
+                fill={selectedType.gender !== '여성' ? '#353437' : '#ffffff'}
+              />
+              <SubTitle selected={selectedType.gender === '여성'}>
+                {'여성'}
+              </SubTitle>
+              <View
+                style={{
+                  position: 'absolute',
+                  top: 6,
+                  right: 16,
+                  display: `${selectedType.gender === '여성' ? 'flex' : 'none'}`,
+                }}
+              >
+                <IconCircleCheck />
+              </View>
+            </ContainetCustom>
+            {selectedType.gender && (
+              <ButtonCustom onPress={increasePages} marginTop="60px">
+                <ButtonTitle>{'다음'}</ButtonTitle>
+              </ButtonCustom>
+            )}
+          </Container>
+        </ScrollView>
       ) : page === 1 ? (
         <ScrollView>
           <Container
@@ -409,7 +445,7 @@ const MakingProfileDetail = () => {
             alignItems="flex-start"
             backgroundColor="#f5f5f5"
           >
-            <Title>{'마음에 드는 의상을 골라주세요.'}</Title>
+            <Title>{'어떤 배경에서 찍고 싶으세요?'}</Title>
 
             <CardsContainer>
               <TouchableOpacity
@@ -661,6 +697,7 @@ const ButtonCustom = styled.TouchableOpacity`
   justify-content: center;
 
   display: flex;
+  margin-bottom: 30px;
 `;
 
 const ButtonTitle = styled.Text`

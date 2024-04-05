@@ -13,12 +13,15 @@ import {
   Modal,
   Pressable,
   StyleSheet,
+  InputAccessoryView,
 } from 'react-native';
 import styled from 'styled-components/native';
 import IconMemo from '@assets/Chat/icon-mori.svg';
 import IconModalButton from '@assets/Chat/icon-modal-button.svg';
 
 import IconMori from '@assets/Chat/image-mori.png';
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const styles = StyleSheet.create({
   shareButton: {
@@ -190,20 +193,20 @@ const Chat = () => {
           </Modal>
         </Container>
       )}
+      <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
+        <ChatContainer>
+          <FlatList
+            data={messages}
+            renderItem={renderItem}
+            keyExtractor={(item) => item._id}
+            inverted
+          />
+        </ChatContainer>
+      </View>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={{ flex: 1 }}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0}
       >
-        <View style={{ flex: 1 }}>
-          <ChatContainer>
-            <FlatList
-              data={messages}
-              renderItem={renderItem}
-              keyExtractor={(item) => item._id}
-              inverted
-            />
-          </ChatContainer>
-        </View>
         <ChatBar
           text={text}
           setText={setText}

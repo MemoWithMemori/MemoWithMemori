@@ -33,18 +33,22 @@ const LandingHome = () => {
             marginBottom="29px"
             paddingLeft="16px"
           >
-            <Card source={ImageCardBackgroundBlue}>
-              <CardText>
-                {'살면서 가장\n'}
-                <Text style={{ color: '#FCFF61' }}>
-                  {'행복했던 순간'}
-                  <Text style={{ color: '#Ffffff' }}>{'은\n언제인가요?'}</Text>
-                </Text>
-              </CardText>
-              <CardButtonContainer width="120px" onPress={goChat}>
-                <CardButtonText>{'질문카드 작성하기'}</CardButtonText>
-              </CardButtonContainer>
-            </Card>
+            <TouchableOpacity onPress={goChat}>
+              <Card source={ImageCardBackgroundBlue}>
+                <CardText>
+                  {'살면서 가장\n'}
+                  <Text style={{ color: '#FCFF61' }}>
+                    {'행복했던 순간'}
+                    <Text style={{ color: '#Ffffff' }}>
+                      {'은\n언제인가요?'}
+                    </Text>
+                  </Text>
+                </CardText>
+                <CardButtonContainer width="135px">
+                  <CardButtonText>{'질문카드 작성하기'}</CardButtonText>
+                </CardButtonContainer>
+              </Card>
+            </TouchableOpacity>
 
             <Card source={ImageCardBackgroundRed}>
               <View>
@@ -60,7 +64,7 @@ const LandingHome = () => {
                   {'모리가 도와드릴게요'}
                 </CardSubText>
               </View>
-              <CardButtonContainer width="143px">
+              <CardButtonContainer width="147px">
                 <CardButtonText>{'유언장 작성 시작하기'}</CardButtonText>
               </CardButtonContainer>
             </Card>

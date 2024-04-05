@@ -29,7 +29,6 @@ const LoadingPhotos = ({ navigation: { navigate }, route }) => {
 
   useEffect(() => {
     console.log(route);
-    console.log(route.params.photo.assets[0].uri);
     _loadPhotos();
 
     // let timer = setTimeout(() => {
@@ -50,9 +49,9 @@ const LoadingPhotos = ({ navigation: { navigate }, route }) => {
       'X-RapidAPI-Host': 'face-swap1.p.rapidapi.com',
     },
     data: {
-      source: route.params.photo.assets[0].uri,
+      source: route.params.photo,
       target:
-        'https://postfiles.pstatic.net/MjAyNDA0MDJfMjgg/MDAxNzExOTg2MTkxNDI2.TS7ubnbM6v4CsuqVegGsB7FUURlZk5gC3B06BjQt-V0g.0BwR9k9sgIB7v-H9cQDyCpE5l8Lt1iBkynEuvmaVCgkg.PNG/image_74.png?type=w966',
+        'https://firebasestorage.googleapis.com/v0/b/memori-7aab6.appspot.com/o/image%2074.png?alt=media&token=dda9eb99-96a1-4e6e-ba36-1ea8e16b4c7f',
     },
   };
 
@@ -69,7 +68,7 @@ const LoadingPhotos = ({ navigation: { navigate }, route }) => {
   console.log(base64Image);
   return (
     <>
-      {base64Image ? (
+      {!base64Image ? (
         <Container
           width="100%"
           height="100%"
